@@ -213,22 +213,11 @@ async def on_command_error(error, ctx):
 # ==========NON COMMAND FUNCTIONS===============
 # ==============================================
 async def bot_message_cleanup(message):
-    TZ_Server_ID = '165310633884123137'
-    TZ_FrameChannel_ID = '315052762947649536'
     TestServer_Server_ID = '302481884984639488'
     TestServer_ChannelID = '303175029884059649'
     Delay_Seconds = 10
 
-    if message.channel.is_private or message.channel.id == TZ_FrameChannel_ID:
-        # lazy workaround for TZ's frame data channel cuz ppl spam shit in chara channels
-        # dont do shit
-        return
-    if message.server.id == TZ_Server_ID:
-        # lazy workaround No.2
-        await asyncio.sleep(Delay_Seconds)
-        await bot.delete_message(message)
-        return
-
+  
     if message.channel.permissions_for(message.server.me).manage_messages:
         # self delete does not require server permissions,
         # but tying both cleanups to one check for now until I make a controllable toggle.
@@ -237,7 +226,7 @@ async def bot_message_cleanup(message):
         return
 
 async def user_message_cleanup(message):
-    Delay_Seconds = 15
+    Delay_Seconds = 60
     if message.channel.is_private:
         return
     if message.channel.permissions_for(message.server.me).manage_messages:
