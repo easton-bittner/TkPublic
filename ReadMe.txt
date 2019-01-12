@@ -10,5 +10,5 @@ The bot is written in Python, and uses the Discord.py wrapper, BS4, FuzzyWuzzy, 
 
 To run the bot, create a txt file in the same directory as tekkenbot.py, paste your token in it and name it token.txt. Then execute tekkenbot.py.
 
-All frame data is sourced from RBNorway.
 
+The goal of this fork is to get better frame data from http://geppopotamus.info/game/tekken7fr/
